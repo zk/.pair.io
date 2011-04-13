@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: jax
+# key: jax
+# --
+$.ajax({
+  url: '$1',
+  dataType: 'json',
+  data: {$2},
+  success: function(data, status, xhr) {$3},
+  error: function(xhr, status, error) {$4}
+})

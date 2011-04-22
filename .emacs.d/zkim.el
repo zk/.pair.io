@@ -6,7 +6,7 @@
 
 (add-to-list 'load-path "~/.emacs.d/zkim/auto-complete")
 ;;(add-to-list 'load-path "~/.emacs.d/plugins/nav")
-
+(add-to-list 'load-path "~/.emacs.d/zkim/anything")
 
 (require 'color-theme)
 (require 'linum)
@@ -14,6 +14,8 @@
 (require 'clojure-mode)
 (require 'yasnippet)
 (require 'ruby-mode)
+(require 'eproject)
+(require 'eproject-extras)
 
 (eval-after-load "color-theme"
   '(progn
@@ -27,9 +29,33 @@
 ;;(ac-config-default)
 
 ;; anything
-(add-to-list 'load-path "~/.emacs.d/zkim/anything")
+(require 'anything)
 (require 'anything-config)
+(require 'anything-eproject)
 
+(defun custom-anything ()
+  (interactive)
+  (anything-other-buffer '(
+                           anything-c-source-buffers
+                           anything-c-source-file-name-history
+                           anything-c-source-eproject-files)
+                         "*anything*"))
+
+(setq anything-sources
+      (list
+       anything-c-source-buffers+
+       anything-c-source-file-name-history
+       anything-c-source-eproject-files
+;       anything-c-source-eproject-buffers
+       ))
+
+(define-project-type lein (generic)
+  (look-for "project.clj")
+  :relavent-files (".*"))
+
+(define-project-type git (generic)  ; Any dir with a .git directory
+  (look-for ".git")
+  :relavent-files (".*"))
 
 ;; linum setup
 (setq linum-format "%d ")

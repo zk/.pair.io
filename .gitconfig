@@ -5,3 +5,5 @@
 [url "https://github.com/"]
         insteadOf = "gh:"
 
+[core]
+	editor = vim

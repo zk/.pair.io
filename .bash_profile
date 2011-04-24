@@ -1,5 +1,5 @@
 
 alias tmuxs="tmux attach-session -t"
 
-export TERM=screen-256color
+export TERM=xterm-256color
 

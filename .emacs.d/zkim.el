@@ -183,3 +183,7 @@
 ;; Ruby
 
 (define-key ruby-mode-map (kbd "M-q") 'ruby-indent-exp)
+
+;; CoffeeScript
+(add-to-list 'load-path "~/.emacs.d/zkim/coffee-mode")
+(require 'coffee-mode)

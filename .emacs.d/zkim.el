@@ -33,29 +33,21 @@
 (require 'anything-config)
 (require 'anything-eproject)
 
-(defun custom-anything ()
-  (interactive)
-  (anything-other-buffer '(
-                           anything-c-source-buffers
-                           anything-c-source-file-name-history
-                           anything-c-source-eproject-files)
-                         "*anything*"))
+;; (setq anything-sources
+;;       (list
+;;        anything-c-source-buffers+
+;;        anything-c-source-file-name-history
+;;        anything-c-source-eproject-files
+;;        ))
 
-(setq anything-sources
-      (list
-       anything-c-source-buffers+
-       anything-c-source-file-name-history
-       anything-c-source-eproject-files
-;       anything-c-source-eproject-buffers
-       ))
+;; (define-project-type git (generic)  ; Any dir with a .git directory
+;;   (look-for ".git")
+;;   :relavent-files (".*"))
 
 (define-project-type lein (generic)
   (look-for "project.clj")
-  :relavent-files (".*"))
-
-(define-project-type git (generic)  ; Any dir with a .git directory
-  (look-for ".git")
-  :relavent-files (".*"))
+  :relevant-files (".*")
+  :irrelevant-files ("^[.]" "^[#]" "\\.jar$" "\\.war$"))
 
 ;; linum setup
 (setq linum-format "%d ")
@@ -123,6 +115,12 @@
   (interactive)
   (slime-interactive-eval clj-expression-buffer))
 
+(defun eproject-anything ()
+  (interactive)
+  (anything-other-buffer '(
+                           anything-c-source-eproject-files)
+                         "*anything*"))
+
 ;; Key Bindings
 (global-set-key (kbd "C-x C-y") 'anything-show-kill-ring)
 ;; (global-set-key (kbd "C-x y") 'browse-kill-ring)
@@ -142,6 +140,7 @@
 (global-set-key (kbd "M-SPC") 'anything)
 (define-key paredit-mode-map (kbd "C-j") 'save-buffer)
 (define-key clojure-mode-map (kbd "C-j") 'save-buffer)
+(define-key clojure-mode-map (kbd "M-t") 'eproject-anything)
 (global-set-key (kbd "C-j") 'save-buffer)
 (global-set-key (kbd "C-_") 'undo)
 

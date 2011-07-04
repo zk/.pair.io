@@ -1,0 +1,21 @@
+#!/bin/sh
+#
+# My https://pair.io dotfiles bootstrap script.
+#
+# Usage:
+# curl https://raw.github.com/zkim/.pair.io/master/bootstrap | sh
+
+IAM=$(whoami)
+DOT_ROOT=~/.zkim-pairio-dotfiles
+
+rm -rf ~/.oh-my-zsh
+rm -rf $DOT_ROOT
+
+git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+git clone https://github.com/zkim/.pair.io.git ~/.zkim-pairio-dotfiles
+				
+ln -s -t ~/ $DOT_ROOT/.emacs.d
+ln -s -t ~/ $DOT_ROOT/.bash_profile
+ln -s -t ~/ $DOT_ROOT/.bashrc
+ln -s -t ~/ $DOT_ROOT/.gitconfig
+ln -s -t ~/ $DOT_ROOT/.tmux.conf

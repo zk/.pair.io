@@ -7,6 +7,7 @@
 (add-to-list 'load-path "~/.emacs.d/zkim/auto-complete")
 ;;(add-to-list 'load-path "~/.emacs.d/plugins/nav")
 (add-to-list 'load-path "~/.emacs.d/zkim/anything")
+(add-to-list 'load-path "~/.emacs.d/zkim/scala-mode")
 
 (require 'color-theme)
 (require 'linum)
@@ -16,6 +17,7 @@
 (require 'ruby-mode)
 (require 'eproject)
 (require 'eproject-extras)
+(require 'scala-mode)
 
 (eval-after-load "color-theme"
   '(progn

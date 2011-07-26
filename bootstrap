@@ -31,3 +31,4 @@ ln -s -t ~/ $DOT_ROOT/.zshrc
 cp -f -v $DOT_ROOT/.oh-my-zsh/custom/*.zsh ~/.oh-my-zsh/custom/
 cp -f -v $DOT_ROOT/.oh-my-zsh/themes/dakrone.zsh-theme ~/.oh-my-zsh/themes/
 
+sudo apt-get install -y exuberant-ctags

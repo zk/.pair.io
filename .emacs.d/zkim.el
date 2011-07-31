@@ -193,3 +193,15 @@
 (require 'windata)
 (require 'dirtree)
 
+(defun eproject-dirtree ()
+  (interactive)
+  (dirtree-buffer eproject-root t))
+
+;;(global-set-key (kbd "M-l") 'eproject-dirtree)
+
+
+
+
+
+
+

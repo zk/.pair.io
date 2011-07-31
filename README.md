@@ -24,7 +24,6 @@ curl https://raw.github.com/zkim/.pair.io/master/bootstrap | sh
 
 * `C-x C-f` -- open file
   * `C-s` / `C-r` -- next / prev
-  * `BKSP` -- go to parent directory
   * `C-w` -- ido-delete-backward-word-updir
 
 ### Dirtree 

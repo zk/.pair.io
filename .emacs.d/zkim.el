@@ -195,7 +195,7 @@
 
 (defun ep-dirtree ()
   (interactive)
-  (dirtree-buffer eproject-root t))
+  (dirtree-in-buffer eproject-root t))
 
 
 

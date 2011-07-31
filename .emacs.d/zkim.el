@@ -189,6 +189,8 @@
 (add-to-list 'load-path "~/.emacs.d/zkim/coffee-mode")
 (require 'coffee-mode)
 
+
+;; dirtree
 (require 'tree-mode)
 (require 'windata)
 (require 'dirtree)
@@ -198,9 +200,5 @@
   (dirtree-in-buffer eproject-root t))
 
 
-
-
-
-
-
-
+;; ido
+(define-key ido-file-completion-map (kbd "C-w") 'ido-delete-backward-word-updir)

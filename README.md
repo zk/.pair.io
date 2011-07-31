@@ -17,7 +17,15 @@ curl https://raw.github.com/zkim/.pair.io/master/bootstrap | sh
 ### Anything
 * `C-SPC` -- Open anything with buffers, recent files, and current
   dir.
-* `M-t` -- Open anything with all files in current eproject (eproject-anything).
+* `M-t` -- Open anything with all files in current eproject
+  (eproject-anything).
+
+### Ido
+
+* `C-x C-f` -- open file
+  * `C-s` / `C-r` -- next / prev
+  * `BKSP` -- go to parent directory
+  * `C-w` -- ido-delete-backward-word-updir
 
 ### Dirtree 
 

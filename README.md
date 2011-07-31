@@ -33,7 +33,7 @@ http://github.com/zkim/emacs-dirtree
 * `M-x ep-dirtree` -- eproject-dirtree, will open dirtree with the root at the
   current eproject.
 * `e` -- Toggle node
-* `E` -- Expand node
+* `E` -- Expand node, prefix with 0 to expand all subtrees.
 * `g` -- Refresh node
 * `u` -- Up to parent
 * `r` -- Up to root

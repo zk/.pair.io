@@ -188,3 +188,8 @@
 ;; CoffeeScript
 (add-to-list 'load-path "~/.emacs.d/zkim/coffee-mode")
 (require 'coffee-mode)
+
+(require 'tree-mode)
+(require 'windata)
+(require 'dirtree)
+

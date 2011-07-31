@@ -33,9 +33,6 @@ http://github.com/zkim/emacs-dirtree
 * `!` -- Collapse other siblings
 
 
+## Tmux
 
-
-
-
-
-
+* `M-i` -- prefix command

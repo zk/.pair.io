@@ -30,6 +30,7 @@ http://github.com/zkim/emacs-dirtree
 * `g` -- Refresh node
 * `u` -- Up to parent
 * `r` -- Up to root
+* `!` -- Collapse other siblings
 
 
 

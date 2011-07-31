@@ -183,7 +183,7 @@ With prefix arguement select `dirtree-buffer'"
   "Open file in other window"
   (let ((file (widget-get node :file)))
     (and file
-         (find-file-other-window file))))
+         (find-file file))))
 
 (defun dirtree-display ()
   "Open file under point"

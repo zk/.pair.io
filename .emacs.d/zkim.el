@@ -142,7 +142,7 @@
 (global-set-key (kbd "M-SPC") 'anything)
 (define-key paredit-mode-map (kbd "C-j") 'save-buffer)
 (define-key clojure-mode-map (kbd "C-j") 'save-buffer)
-(define-key clojure-mode-map (kbd "M-t") 'eproject-anything)
+(global-set-key (kbd "M-t") 'eproject-anything)
 (global-set-key (kbd "C-j") 'save-buffer)
 (global-set-key (kbd "C-_") 'undo)
 

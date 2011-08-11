@@ -25,7 +25,7 @@ if [[ $OS == "Darwin" ]]; then
     export EDITOR="TERM=xterm-256color /Applications/Emacs.app/Contents/MacOS/Emacs -nw"
 
     # Use MacVim's vim for terminal sessions, since it has everything compiled in.
-    alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+    # alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 
     # Remove ctrl+y from the keybinds for delayed suspend
     stty dsusp undef
@@ -38,5 +38,7 @@ if [[ $OS == "Darwin" ]]; then
 
     # awesome
     alias gps="ps -c -r -ax -o command,pid,pcpu,time | sed 's/\(PID *\)%/\1 %/' | head -n 11 && echo && ps -c -m -ax -o command,pid,pmem,rss=RSIZE | sed 's/\(.\{23\}\)/\1 /' | head -n 9"
+
+    export PATH=/opt/local/bin:$PATH
 
 fi

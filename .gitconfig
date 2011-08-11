@@ -2,8 +2,5 @@
 	name = zkim
 	email = zachary.kim@gmail.com
 
-[url "https://github.com/"]
-        insteadOf = "gh:"
-
 [core]
 	editor = vim

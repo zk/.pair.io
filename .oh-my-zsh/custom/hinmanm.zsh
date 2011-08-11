@@ -49,11 +49,11 @@ if [ -s ~/bin/z.sh ] ; then
 fi
 
 # rvm stuff:
-if [ -s ~/.rvm/scripts/rvm ] ; then
-      source ~/.rvm/scripts/rvm
-      # Set default ruby install
-      rvm default
-fi
+# if [ -s ~/.rvm/scripts/rvm ] ; then
+#       source ~/.rvm/scripts/rvm
+#       # Set default ruby install
+#       rvm default
+# fi
 
 # Always override with my personal bin
 export PATH=~/bin:$PATH

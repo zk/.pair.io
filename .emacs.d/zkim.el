@@ -212,3 +212,6 @@
                   (get-char-property (point) 'face))))
     (if face (message "Face: %s" face) (message "No face at %d" pos))))
 
+;; CSS
+
+(define-key css-mode-map (kbd "RET") 'newline-and-indent)

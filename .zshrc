@@ -28,3 +28,6 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 
 # see ~/.oh-my-zsh/custom/hinmanm.zsh
+
+# RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 

@@ -31,3 +31,5 @@ source $ZSH/oh-my-zsh.sh
 
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+
+export PATH=$PATH:/usr/local/bin:/var/lib/gems/1.8/bin

@@ -595,7 +595,8 @@ This function also returns nil meaning don't specify the indentation."
         (cond ((member (char-after open-paren) '(?\[ ?\{))
                (goto-char open-paren)
                (1+ (current-column)))
-              ((or (eq method 'defun)
+              ((or t
+                   (eq method 'defun)
                    (and (null method)
                         (> (length function) 3)
                         (string-match "\\`\\(?:\\S +/\\)?def\\|with-"

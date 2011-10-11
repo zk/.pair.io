@@ -226,3 +226,19 @@
 (setq
  scroll-margin 5)
 
+
+
+;; (defadvice next-window
+;;   (after track-last-eproject-root activate)
+;;   (message "On next window!")
+;;   (message eproject-root))
+
+;; (defadvice previous-window
+;;   (after track-last-eproject-root activate)
+;;   (message "On next window!")
+;;   (message eproject-root))
+
+;; (defadvice other-window
+;;   (after track-last-eproject-root activate)
+;;   (message "On next window!")
+;;   (message eproject-root))

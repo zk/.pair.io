@@ -18,6 +18,7 @@
 (require 'eproject)
 (require 'eproject-extras)
 (require 'scala-mode)
+(require 'centered-cursor-mode)
 
 (eval-after-load "color-theme"
   '(progn
@@ -214,4 +215,14 @@
 
 ;; CSS
 
-(define-key css-mode-map (kbd "RET") 'newline-and-indent)
+
+;; (custom-set-variables
+;;   ;; custom-set-variables was added by Custom.
+;;   ;; If you edit it by hand, you could mess it up, so be careful.
+;;   ;; Your init file should contain only one such instance.
+;;   ;; If there is more than one, they won't work right.
+;;  '(next-screen-context-lines 4))
+
+(setq
+ scroll-margin 5)
+

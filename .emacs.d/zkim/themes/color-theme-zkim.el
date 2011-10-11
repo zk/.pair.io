@@ -34,7 +34,7 @@ Emacs.pane.menubar.foreground: black"
    (custom-variable-tag-face ((t (:underline t))))
    (diary-face ((t (:foreground "gold"))))
    (font-lock-builtin-face ((t (:bold t :foreground "cyan"))))
-   (font-lock-comment-face ((t (:foreground "#EE0000"))))
+   (font-lock-comment-face ((t (:foreground "green"))))
    (font-lock-constant-face ((t (:bold t :foreground "LightSteelBlue"))))
    (font-lock-function-name-face ((t (:bold t :foreground "#FF8600"))))
    (font-lock-keyword-face ((t (:bold t :foreground "gold"))))

@@ -18,7 +18,7 @@
 (require 'eproject)
 (require 'eproject-extras)
 (require 'scala-mode)
-(require 'centered-cursor-mode)
+;; (require 'centered-cursor-mode)
 
 (eval-after-load "color-theme"
   '(progn

@@ -34,3 +34,4 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH=$PATH:/usr/local/bin:/var/lib/gems/1.8/bin
 export HBASE_HOME=/usr/local/hbase-0.90.4
+export HBASE_MAJOR_VERSION=9

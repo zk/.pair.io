@@ -3,7 +3,7 @@ then CARETCOLOR="red"
 else CARETCOLOR="cyan"
 fi
 
-PROMPT_CHAR=𝝺
+PROMPT_CHAR=`echo "\xF0\x9D\x9D\xBA"`
 
 # ignore Xanadu as a hostname
 if [ "$(hostname)" = "Xanadu.local" ]

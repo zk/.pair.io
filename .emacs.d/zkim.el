@@ -18,6 +18,7 @@
 (require 'eproject)
 (require 'eproject-extras)
 (require 'scala-mode)
+(require 'smooth-scrolling)
 ;; (require 'centered-cursor-mode)
 
 (eval-after-load "color-theme"

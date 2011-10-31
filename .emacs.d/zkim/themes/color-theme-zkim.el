@@ -146,4 +146,5 @@ Emacs.pane.menubar.foreground: black"
    (widget-documentation-face ((t (:foreground "lime green"))))
    (widget-field-face ((t (:background "dim gray" :foreground "white"))))
    (widget-inactive-face ((t (:foreground "light gray"))))
-   (widget-single-line-field-face ((t (:background "dim gray" :foreground "white")))))))
+   (widget-single-line-field-face ((t (:background "dim gray" :foreground "white"))))
+   (magit-item-highlight ((t (:background "#111111")))))))

@@ -4,10 +4,12 @@
      (expand-file-name "~/.emacs.d/package.el"))
   (package-initialize))
 
-(add-to-list 'load-path "~/.emacs.d/zkim/auto-complete")
+(setq current-user (getenv "USER"))
+
+(add-to-list 'load-path (concat "~/.emacs.d/" current-user "/auto-complete"))
 ;;(add-to-list 'load-path "~/.emacs.d/plugins/nav")
-(add-to-list 'load-path "~/.emacs.d/zkim/anything")
-(add-to-list 'load-path "~/.emacs.d/zkim/scala-mode")
+(add-to-list 'load-path (concat "~/.emacs.d/" current-user "/anything"))
+(add-to-list 'load-path (concat "~/.emacs.d/" current-user "/scala-mode"))
 
 (require 'color-theme)
 (require 'linum)
@@ -26,27 +28,10 @@
      (color-theme-initialize)
      (color-theme-zkim)))
 
-;; auto-complete
-;;(add-to-list 'load-path "~/.emacs.d/zkim/auto-complete")
-;;(require 'auto-complete-config)
-;;(add-to-list 'ac-dictionary-directories "~/.emacs.d/zkim/auto-complete/ac-dict")
-;;(ac-config-default)
-
 ;; anything
 (require 'anything)
 (require 'anything-config)
 (require 'anything-eproject)
-
-;; (setq anything-sources
-;;       (list
-;;        anything-c-source-buffers+
-;;        anything-c-source-file-name-history
-;;        anything-c-source-eproject-files
-;;        ))
-
-;; (define-project-type git (generic)  ; Any dir with a .git directory
-;;   (look-for ".git")
-;;   :relavent-files (".*"))
 
 (define-project-type lein (generic)
   (look-for "project.clj")
@@ -188,7 +173,7 @@
 (define-key ruby-mode-map (kbd "M-q") 'ruby-indent-exp)
 
 ;; CoffeeScript
-(add-to-list 'load-path "~/.emacs.d/zkim/coffee-mode")
+(add-to-list 'load-path (concat "~/.emacs.d/" current-user "/coffee-mode"))
 (require 'coffee-mode)
 
 

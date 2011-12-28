@@ -109,7 +109,7 @@ Does not list the project if it doesn't have any buffers."
           do (puthash (car x)
                       (cons (cdr x) (gethash (car x) hash)) hash))
     (loop for key being the hash-keys of hash
-          collect (cons key (gethash key hash)))))
+           collect (cons key (gethash key hash)))))
 
 (defun* eproject--get-name-root-alist (&key live-only)
   (let ((all-projects (eproject-projects))

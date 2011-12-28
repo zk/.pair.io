@@ -221,6 +221,9 @@
   :link '(emacs-library-link :tag "Optional extras" "eproject-extras.el")
   :link '(url-link :tag "Github wiki" "http://wiki.github.com/jrockway/eproject"))
 
+(defvar eproject-last-bestroot)
+(defvar eproject-last-besttype)
+
 (defvar eproject-root nil
   "A buffer-local variable set to the root of its eproject
   project.  NIL if it isn't in an eproject.  Your code should
@@ -543,39 +546,44 @@ else through unchanged."
                               (> (length root) (length bestroot))))
                  (setq bestroot root)
                  (setq besttype type))))
-    (when bestroot
-      (setq eproject-root (file-name-as-directory bestroot))
+    (let ((bestroot (or bestroot eproject-last-bestroot))
+          (besttype (or besttype eproject-last-besttype)))
+      (when besttype
+        (setq eproject-last-besttype besttype))
+      (when bestroot
+        (setq eproject-last-bestroot bestroot)
+        (setq eproject-root (file-name-as-directory bestroot))
 
-      ;; read .eproject file (etc.) and initialize at least :name and
-      ;; :type
-      (condition-case e
-          (eproject--init-attributes eproject-root besttype)
-        (error (display-warning 'warning
-            (format "There was a problem setting up the eproject attributes for this project: %s" e))))
+        ;; read .eproject file (etc.) and initialize at least :name and
+        ;; :type
+        (condition-case e
+            (eproject--init-attributes eproject-root besttype)
+          (error (display-warning 'warning
+                                  (format "There was a problem setting up the eproject attributes for this project: %s" e))))
 
-      ;; with :name and :type set, it's now safe to turn on eproject
-      (eproject-mode 1)
+        ;; with :name and :type set, it's now safe to turn on eproject
+        (eproject-mode 1)
 
-      ;; initialize buffer-local variables that the project defines
-      ;; (called after we turn on eproject-mode, so we can call
-      ;; eproject-* functions cleanly)
-      (condition-case e
-          (eproject--setup-local-variables)
-        (error (display-warning 'warning
-          (format "Problem initializing project-specific local-variables in %s: %s"
-                  (eproject--buffer-file-name) e))))
+        ;; initialize buffer-local variables that the project defines
+        ;; (called after we turn on eproject-mode, so we can call
+        ;; eproject-* functions cleanly)
+        (condition-case e
+            (eproject--setup-local-variables)
+          (error (display-warning 'warning
+                                  (format "Problem initializing project-specific local-variables in %s: %s"
+                                          (eproject--buffer-file-name) e))))
 
-      ;; run the first-buffer hooks if this is the first time we've
-      ;; seen this particular project root.
-      (when (not (member eproject-root set-before))
-        (run-hooks 'eproject-first-buffer-hook))
+        ;; run the first-buffer hooks if this is the first time we've
+        ;; seen this particular project root.
+        (when (not (member eproject-root set-before))
+          (run-hooks 'eproject-first-buffer-hook))
 
-      ;; run project-type hooks, which may also call into eproject-*
-      ;; functions
-      (run-hooks (intern (format "%s-project-file-visit-hook" besttype)))
+        ;; run project-type hooks, which may also call into eproject-*
+        ;; functions
+        (run-hooks (intern (format "%s-project-file-visit-hook" besttype)))
 
-      ;; return the project root; it's occasionally useful for the caller
-      bestroot)))
+        ;; return the project root; it's occasionally useful for the caller
+        bestroot))))                                            
 
 (defun eproject--setup-local-variables ()
   "Setup local variables as specified by the project attribute :local-variables."

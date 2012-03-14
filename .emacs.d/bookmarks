@@ -1,0 +1,10 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("b"
+ (filename . "~/.emacs.d/zkim/ruby-mode/ruby-mode.el")
+ (front-context-string . "(while (and (set")
+ (rear-context-string . " orig (point))\n	")
+ (position . 37082))
+)

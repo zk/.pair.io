@@ -9,7 +9,7 @@
 (add-to-list 'load-path (concat "~/.emacs.d/" current-user "/auto-complete"))
 ;;(add-to-list 'load-path "~/.emacs.d/plugins/nav")
 (add-to-list 'load-path (concat "~/.emacs.d/" current-user "/anything"))
-(add-to-list 'load-path (concat "~/.emacs.d/" current-user "/scala-mode"))
+;;(add-to-list 'load-path (concat "~/.emacs.d/" current-user "/scala-mode"))
 
 (require 'color-theme)
 (require 'linum)
@@ -17,11 +17,34 @@
 (require 'clojure-mode)
 (require 'yasnippet)
 (require 'ruby-mode)
+(eval-after-load "ruby-mode" '(require 'ruby-mode-indent-fix))
 (require 'eproject)
 (require 'eproject-extras)
-(require 'scala-mode)
+;;(require 'scala-mode)
 (require 'smooth-scrolling)
 ;; (require 'centered-cursor-mode)
+
+(require 'smex)
+(smex-initialize)
+
+
+(add-to-list 'load-path (concat "~/.emacs.d/" current-user "/ack-and-a-half.el"))
+(autoload 'ack-and-a-half-same "ack-and-a-half" nil t)
+(autoload 'ack-and-a-half "ack-and-a-half" nil t)
+(autoload 'ack-and-a-half-find-file-same "ack-and-a-half" nil t)
+(autoload 'ack-and-a-half-find-file "ack-and-a-half" nil t)
+;; Create shorter aliases
+(defalias 'ack 'ack-and-a-half)
+(defalias 'ack-same 'ack-and-a-half-same)
+(defalias 'ack-find-file 'ack-and-a-half-find-file)
+(defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
+(setq ack-and-a-half-prompt-for-directory t)
+
+
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; This is your old M-x.
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 (eval-after-load "color-theme"
   '(progn
@@ -129,6 +152,7 @@
 (global-set-key (kbd "M-SPC") 'anything)
 (define-key paredit-mode-map (kbd "C-j") 'save-buffer)
 (define-key clojure-mode-map (kbd "C-j") 'save-buffer)
+(define-key ruby-mode-map (kbd "C-j") 'save-buffer)
 (global-set-key (kbd "M-t") 'eproject-anything)
 (global-set-key (kbd "C-j") 'save-buffer)
 (global-set-key (kbd "C-_") 'undo)
@@ -228,3 +252,12 @@
 ;;   (after track-last-eproject-root activate)
 ;;   (message "On next window!")
 ;;   (message eproject-root))
+
+(add-hook 'coffee-mode-hook
+          '(lambda () (set (make-local-variable 'tab-width) 2)))
+
+
+(global-set-key (kbd "<ESC> <left>") 'windmove-left)
+(global-set-key (kbd "<ESC> <right>") 'windmove-right)
+(global-set-key (kbd "<ESC> <up>") 'windmove-up)
+(global-set-key (kbd "<ESC> <down>") 'windmove-down)

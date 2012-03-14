@@ -3,8 +3,9 @@
 ;;; Code:
 
 
-;;;### (autoloads (ruby-mode) "ruby-mode" "ruby-mode.el" (19777 8915))
-;;; Generated autoloads from ruby-mode.el
+;;;### (autoloads (ruby-mode) "ruby-mode" "../../../../.emacs.d/elpa/ruby-mode-1.1/ruby-mode.el"
+;;;;;;  (20222 41300))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/ruby-mode-1.1/ruby-mode.el
 
 (autoload 'ruby-mode "ruby-mode" "\
 Major mode for editing Ruby scripts.
@@ -31,7 +32,9 @@ The variable ruby-indent-level controls the amount of indentation.
 
 ;;;***
 
-;;;### (autoloads nil nil ("ruby-mode-pkg.el") (19777 8915 843065))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/ruby-mode-1.1/ruby-mode-pkg.el"
+;;;;;;  "../../../../.emacs.d/elpa/ruby-mode-1.1/ruby-mode.el") (20222
+;;;;;;  41300 751012))
 
 ;;;***
 

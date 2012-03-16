@@ -4,7 +4,7 @@
 
 
 ;;;### (autoloads (ruby-mode) "ruby-mode" "../../../../.emacs.d/elpa/ruby-mode-1.1/ruby-mode.el"
-;;;;;;  (20222 41300))
+;;;;;;  (20321 18841))
 ;;; Generated autoloads from ../../../../.emacs.d/elpa/ruby-mode-1.1/ruby-mode.el
 
 (autoload 'ruby-mode "ruby-mode" "\
@@ -33,8 +33,8 @@ The variable ruby-indent-level controls the amount of indentation.
 ;;;***
 
 ;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/ruby-mode-1.1/ruby-mode-pkg.el"
-;;;;;;  "../../../../.emacs.d/elpa/ruby-mode-1.1/ruby-mode.el") (20222
-;;;;;;  41300 751012))
+;;;;;;  "../../../../.emacs.d/elpa/ruby-mode-1.1/ruby-mode.el") (20321
+;;;;;;  18841 826184))
 
 ;;;***
 

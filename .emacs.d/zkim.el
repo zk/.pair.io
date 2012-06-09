@@ -173,7 +173,6 @@
         (if face (message "Face: %s" face) (message "No face at %d" pos))))
 
 (defun toggle-fullscreen () (interactive) (ns-toggle-fullscreen))
-(ns-toggle-fullscreen)
 (global-set-key [f11] 'toggle-fullscreen)
 
 (setq visible-bell nil)

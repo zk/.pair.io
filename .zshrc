@@ -29,7 +29,7 @@ source $ZSH/oh-my-zsh.sh
 
 # see ~/.oh-my-zsh/custom/hinmanm.zsh
 
-# RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+export PATH=$PATH:/usr/local/bin
+# :/var/lib/gems/1.8/bin
 
-export PATH=$PATH:/usr/local/bin:/var/lib/gems/1.8/bin
+export PATH=$PATH:$HOME/.rbenv/shims

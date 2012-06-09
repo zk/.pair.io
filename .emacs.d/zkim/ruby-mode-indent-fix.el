@@ -65,7 +65,7 @@
 ;; Hmmm. http://bugs.ruby-lang.org/issues/6091
 ;;
 ;; NOTE: square brace must be specified first, if specified at all.
-(setq ruby-deep-indent-paren '(?\[ ?\( ?\{ t))
+(setq ruby-deep-indent-paren '(t))
 
 (defvar ruby--paren-closings-regex
   (let (matching-delim)

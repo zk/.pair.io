@@ -15,14 +15,17 @@
 (require 'linum)
 (require 'paredit)
 (require 'clojure-mode)
+(require 'clojurescript-mode)
 (require 'yasnippet)
 (require 'ruby-mode)
-(eval-after-load "ruby-mode" '(require 'ruby-mode-indent-fix))
+;; (require 'ruby-mode-indent-fix)
 (require 'eproject)
 (require 'eproject-extras)
 ;;(require 'scala-mode)
 (require 'smooth-scrolling)
 ;; (require 'centered-cursor-mode)
+(require 'haml-mode)
+(require 'js2-mode)
 
 (require 'smex)
 (smex-initialize)
@@ -74,8 +77,6 @@
 (add-hook 'repl-mode (lambda () (paredit-mode)))
 
 ;;(turn-on-line-numbers-display)
-
-(add-to-list 'auto-mode-alist '("\\.cljs$" . clojure-mode))
 
 (eval-after-load 'slime '(setq slime-protocol-version 'ignore))
 
@@ -161,6 +162,8 @@
 (define-key paredit-mode-map (kbd "C-w") 'paredit-backward-kill-word)
 (global-set-key (kbd "M-DEL") 'kill-region)
 (define-key paredit-mode-map (kbd "M-DEL") 'kill-region)
+;;(define-key html-mode-map (kbd "<RET>") 'reindent-then-newline-and-indent)
+;;(define-key js-mode-map (kbd "<RET>") 'reindent-then-newline-and-indent)
 
 
 (defun what-face (pos)
@@ -169,9 +172,9 @@
                   (get-char-property (point) 'face))))
         (if face (message "Face: %s" face) (message "No face at %d" pos))))
 
-;;(defun toggle-fullscreen () (interactive) (ns-toggle-fullscreen))
-;;(ns-toggle-fullscreen)
-;;(global-set-key [f11] 'toggle-fullscreen)
+(defun toggle-fullscreen () (interactive) (ns-toggle-fullscreen))
+(ns-toggle-fullscreen)
+(global-set-key [f11] 'toggle-fullscreen)
 
 (setq visible-bell nil)
 
@@ -261,3 +264,6 @@
 (global-set-key (kbd "<ESC> <right>") 'windmove-right)
 (global-set-key (kbd "<ESC> <up>") 'windmove-up)
 (global-set-key (kbd "<ESC> <down>") 'windmove-down)
+
+
+(load-file (expand-file-name "~/.emacs.d/custom.el"))

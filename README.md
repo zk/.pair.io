@@ -6,6 +6,8 @@ curl https://raw.github.com/zkim/.pair.io/master/bootstrap | sh
 
 ## Emacs
 
+Requires >= Emacs 23
+
 * `C-j` -- save current buffer
 * `C-w` -- backwards kill word
 

@@ -30,6 +30,18 @@
 (require 'smex)
 (smex-initialize)
 
+(require 'window-numbering)
+(window-numbering-mode 1)
+
+(require 'undo-tree)
+
+(global-set-key (kbd "C-_") 'undo)
+(global-set-key (kbd "M-?") 'undo-tree-visualize)
+
+;; (setq window-numbering-assign-func
+;;       (lambda () (when (equal (buffer-name) "*slime-repl clojure*") 9)))
+
+
 
 (add-to-list 'load-path (concat "~/.emacs.d/" current-user "/ack-and-a-half.el"))
 (autoload 'ack-and-a-half-same "ack-and-a-half" nil t)
@@ -192,6 +204,9 @@
           (replace-match "" nil nil))))))
 
 (global-set-key (kbd "M-\\") 'kill-whitespace)
+(global-set-key (kbd "C-\\") 'kill-whitespace)
+
+
 
 
 ;; Ruby
@@ -226,7 +241,13 @@
     (if face (message "Face: %s" face) (message "No face at %d" pos))))
 
 ;; CSS
+(setq css-indent-offset 2)
+(setq js-indent-level 2)
 
+;; Mode to file extension associations
+(add-to-list 'auto-mode-alist '("\\.scss$" . css-mode))
+(add-to-list 'auto-mode-alist '("\\.bldr$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.hamlc$" . haml-mode))
 
 ;; (custom-set-variables
 ;;   ;; custom-set-variables was added by Custom.
@@ -266,3 +287,43 @@
 
 
 (load-file (expand-file-name "~/.emacs.d/custom.el"))
+
+(setq mac-command-modifier 'meta)
+(setq mac-option-modifier 'super)
+
+(defadvice yes-or-no-p (around prevent-dialog activate)
+  "Prevent yes-or-no-p from activating a dialog"
+  (let ((use-dialog-box nil))
+    ad-do-it))
+
+(defadvice y-or-n-p (around prevent-dialog-yorn activate)
+  "Prevent y-or-n-p from activating a dialog"
+  (let ((use-dialog-box nil))
+    ad-do-it))
+
+(defun geosoft-forward-word ()
+  ;; Move one word forward. Leave the pointer at start of word
+  ;; instead of emacs default end of word. Treat _ as part of word
+  (interactive)
+  (forward-char 1)
+  (backward-word 1)
+  (forward-word 2)
+  (backward-word 1)
+  (backward-char 1)
+  (cond ((looking-at "_") (forward-char 1) (geosoft-forward-word))
+        (t (forward-char 1))))
+
+(defun geosoft-backward-word ()
+  ;; Move one word backward. Leave the pointer at start of word
+  ;; Treat _ as part of word
+  (interactive)
+  (backward-word 1)
+  (backward-char 1)
+  (cond ((looking-at "_") (geosoft-backward-word))
+                 (t (forward-char 1)))) 
+
+(global-set-key (kbd "M-f") 'geosoft-forward-word)
+(global-set-key (kbd "M-b") 'geosoft-backward-word)
+
+
+

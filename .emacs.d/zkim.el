@@ -300,30 +300,3 @@
   "Prevent y-or-n-p from activating a dialog"
   (let ((use-dialog-box nil))
     ad-do-it))
-
-(defun geosoft-forward-word ()
-  ;; Move one word forward. Leave the pointer at start of word
-  ;; instead of emacs default end of word. Treat _ as part of word
-  (interactive)
-  (forward-char 1)
-  (backward-word 1)
-  (forward-word 2)
-  (backward-word 1)
-  (backward-char 1)
-  (cond ((looking-at "_") (forward-char 1) (geosoft-forward-word))
-        (t (forward-char 1))))
-
-(defun geosoft-backward-word ()
-  ;; Move one word backward. Leave the pointer at start of word
-  ;; Treat _ as part of word
-  (interactive)
-  (backward-word 1)
-  (backward-char 1)
-  (cond ((looking-at "_") (geosoft-backward-word))
-                 (t (forward-char 1)))) 
-
-(global-set-key (kbd "M-f") 'geosoft-forward-word)
-(global-set-key (kbd "M-b") 'geosoft-backward-word)
-
-
-

@@ -124,7 +124,7 @@ With prefix arguement select `dirtree-buffer'"
 (defun dirtree-in-buffer (root select)
   "create tree of `root' directory
 With prefix arguement select `dirtree-buffer'"
-  (interactive "DDirectory: \nP")
+  (interactive "Directory: \nP")
   (let ((buffer (get-buffer-create dirtree-buffer))
         tree win)
     (with-current-buffer buffer
@@ -193,6 +193,21 @@ With prefix arguement select `dirtree-buffer'"
     (if (setq file (widget-get widget :file))
         (find-file-other-window file))))
 
+(defun dirtree-previous-line ()
+  (interactive)
+  (previous-line)
+  (move-beginning-of-line nil)
+  (widget-forward 1))
+
+(defun dirtree-next-line ()
+  (interactive)
+  (next-line)
+  (move-beginning-of-line nil)
+  (widget-forward 1))
+
 (define-key dirtree-mode-map "\C-o" 'dirtree-display)
+(define-key dirtree-mode-map (kbd "p") 'dirtree-previous-line)
+(define-key dirtree-mode-map (kbd "n") 'dirtree-next-line)
+
 (provide 'dirtree)
 ;;; dirtree.el ends here

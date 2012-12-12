@@ -1,8 +1,10 @@
 ;; ELPA
-(when
-    (load
-     (expand-file-name "~/.emacs.d/package.el"))
-  (package-initialize))
+
+;; Package Management
+(require 'package)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+(package-initialize)
 
 (setq current-user (getenv "USER"))
 
@@ -38,9 +40,15 @@
 (global-set-key (kbd "C-_") 'undo)
 (global-set-key (kbd "M-?") 'undo-tree-visualize)
 
+
+;; (require 'anything-ack)
+
 ;; (setq window-numbering-assign-func
 ;;       (lambda () (when (equal (buffer-name) "*slime-repl clojure*") 9)))
 
+;; (require 'anything-grep)
+
+;; (require 'anything-git-grep)
 
 
 (add-to-list 'load-path (concat "~/.emacs.d/" current-user "/ack-and-a-half.el"))
@@ -301,8 +309,5 @@
   (let ((use-dialog-box nil))
     ad-do-it))
 
-;; Package Management
-(require 'package)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
-(package-initialize)
+;; Syntax-highlight org mode code blocks
+(setq org-src-fontify-natively t)

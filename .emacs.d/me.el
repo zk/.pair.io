@@ -6,12 +6,10 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
 (package-initialize)
 
-(setq current-user (getenv "USER"))
-
-(add-to-list 'load-path (concat "~/.emacs.d/" current-user "/auto-complete"))
+(add-to-list 'load-path (concat "~/.emacs.d/me/auto-complete"))
 ;;(add-to-list 'load-path "~/.emacs.d/plugins/nav")
-(add-to-list 'load-path (concat "~/.emacs.d/" current-user "/anything"))
-;;(add-to-list 'load-path (concat "~/.emacs.d/" current-user "/scala-mode"))
+(add-to-list 'load-path (concat "~/.emacs.d/me/anything"))
+;;(add-to-list 'load-path (concat "~/.emacs.d/me/scala-mode"))
 
 (require 'color-theme)
 (require 'linum)
@@ -51,7 +49,7 @@
 ;; (require 'anything-git-grep)
 
 
-(add-to-list 'load-path (concat "~/.emacs.d/" current-user "/ack-and-a-half.el"))
+(add-to-list 'load-path (concat "~/.emacs.d/me/ack-and-a-half.el"))
 (autoload 'ack-and-a-half-same "ack-and-a-half" nil t)
 (autoload 'ack-and-a-half "ack-and-a-half" nil t)
 (autoload 'ack-and-a-half-find-file-same "ack-and-a-half" nil t)
@@ -222,7 +220,7 @@
 (define-key ruby-mode-map (kbd "M-q") 'ruby-indent-exp)
 
 ;; CoffeeScript
-(add-to-list 'load-path (concat "~/.emacs.d/" current-user "/coffee-mode"))
+(add-to-list 'load-path (concat "~/.emacs.d/me/coffee-mode"))
 (require 'coffee-mode)
 
 
@@ -293,8 +291,6 @@
 (global-set-key (kbd "<ESC> <up>") 'windmove-up)
 (global-set-key (kbd "<ESC> <down>") 'windmove-down)
 
-
-(load-file (expand-file-name "~/.emacs.d/custom.el"))
 
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier 'super)

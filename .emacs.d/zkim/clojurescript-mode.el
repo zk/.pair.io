@@ -5,7 +5,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.cljs$" . clojurescript-mode))
 
-(setq inferior-lisp-program "/Users/zkim/zaarly/bi-admin/bin/browser-repl")
+(setq inferior-lisp-program "lein trampoline cljsbuild repl-listen")
 
 (define-key clojurescript-mode-map (kbd "C-o") 'lisp-eval-defun)
 (define-key clojurescript-mode-map (kbd "C-c k") 'lisp-eval-region)

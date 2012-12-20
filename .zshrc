@@ -33,3 +33,7 @@ export PATH=$PATH:/usr/local/bin
 # :/var/lib/gems/1.8/bin
 
 export PATH=$PATH:$HOME/.rbenv/shims
+
+
+alias be="bundle exec"
+alias re="rbenv exec"

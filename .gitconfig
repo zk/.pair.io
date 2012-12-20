@@ -4,3 +4,7 @@
 
 [core]
 	editor = vim
+[github]
+	user = zkim
+[ghi]
+	token = 680f9216bad2b8e52c6a15b59c19db492ecfd584
